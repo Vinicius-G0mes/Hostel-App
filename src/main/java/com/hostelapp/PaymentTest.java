@@ -4,21 +4,34 @@ public class PaymentTest {
     public static void main(String[] args) {
         PaymentTest pt = new PaymentTest();
 
-        CardPayment dcp = new DebtCardPayment(259.40, "Bradesco", "05973307603", "Florentino Ariza");
-        CardPayment ccp = new CreditCardPayment(432.21,"VISA", "13004489654", "Ashley Gasly");
+        Payment cashPayment = new Payment(340.00);
+        PaymentType cshPmt = new CashPayment(400);
+        cashPayment.setPaymentType(cshPmt);
 
-        pt.processPayment(dcp);
-        pt.processPayment(ccp);
+        pt.processPayment(cashPayment);
 
-        CashPayment cp = new CashPayment(75.25, 90.00);
-        pt.processPayment(cp);
+        Payment creditCardPayment = new Payment(278.00);
+        PaymentType ccPmt = new CreditCardPayment("VISA", "104489654", "Florentino Ariza");
+        creditCardPayment.setPaymentType(ccPmt);
 
-        CheckPayment cp2 = new CheckPayment(352.91, 52, "Bradesco", 25);
-        pt.processPayment(cp2);
+        pt.processPayment(creditCardPayment);
+
+        Payment checkPayment = new Payment(635.00);
+        PaymentType chkPmt = new CheckPayment(73, "Banco do Brasil", 25);
+        checkPayment.setPaymentType(chkPmt);
+
+        pt.processPayment(checkPayment);
+
+        Payment debitCard = new Payment(1230.00);
+        PaymentType dcPmt = new DebtCardPayment("Itau", "05973307603", "Ashley Gasly");
+        debitCard.setPaymentType(dcPmt);
+
+        pt.processPayment(debitCard);
     }
 
-    public void processPayment(Payment cp){
-        System.out.println("\nProcessando Pagamento\n");
-        System.out.println(cp.toString());
+    public void processPayment(Payment payment){
+        System.out.println("=================");
+        System.out.println("Processando Pagamento");
+        System.out.println(payment.toString());
     }
 }

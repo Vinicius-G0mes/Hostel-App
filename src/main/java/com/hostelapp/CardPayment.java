@@ -1,11 +1,11 @@
 package com.hostelapp;
 
-public class CardPayment extends Payment{
+public abstract class CardPayment extends PaymentType{
     private String cardNumber;
     private String nameOnCard;
 
-    public CardPayment(double amount, String cardNumber, String nameOnCard){
-        super(amount);
+    public CardPayment(String paymentType, String cardNumber, String nameOnCard){
+        super(paymentType);
         this.cardNumber = cardNumber;
         this.nameOnCard = nameOnCard;
     }

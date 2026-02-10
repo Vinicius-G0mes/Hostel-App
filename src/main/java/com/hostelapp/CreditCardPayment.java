@@ -3,8 +3,8 @@ package com.hostelapp;
 public class CreditCardPayment extends CardPayment{
     private String issuer;
 
-    public CreditCardPayment(double amount, String issuer, String cardNumber, String nameOnCard){
-        super(amount, cardNumber, nameOnCard);
+    public CreditCardPayment(String issuer, String cardNumber, String nameOnCard){
+        super("Credit Card Payment", cardNumber, nameOnCard);
         this.issuer = issuer;
     }
 
@@ -18,8 +18,7 @@ public class CreditCardPayment extends CardPayment{
 
     @Override
     public String toString(){
-        return  "PAGAMENTO EM CRÉDITO:\n"
-                +super.toString()
+        return  super.toString()
                 +"\nOperadora do cartão..: " + this.issuer + "\n";
     }
 }
