@@ -4,8 +4,8 @@ public class DebtCardPayment extends CardPayment {
 
     private String bankName;
 
-    public DebtCardPayment(double amount, String bankName, String cardNumber, String nameOnCard){
-        super(amount, cardNumber, nameOnCard);
+    public DebtCardPayment(String bankName, String cardNumber, String nameOnCard){
+        super("Debt Card Payment", cardNumber, nameOnCard);
         this.bankName = bankName;
     }
 
@@ -19,8 +19,7 @@ public class DebtCardPayment extends CardPayment {
 
     @Override
     public String toString(){
-        return "PAGAMENTO EM DEBITO:\n"
-                +super.toString()
+        return  super.toString()
                 +"\nNome do banco...: " + this.bankName + "\n";
     }
 }

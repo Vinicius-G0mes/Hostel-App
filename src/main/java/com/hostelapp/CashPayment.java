@@ -1,10 +1,10 @@
 package com.hostelapp;
 
-public class CashPayment extends Payment{
+public class CashPayment extends PaymentType{
     private double amountTendered;
 
-    public CashPayment(double amount, double amountTendered){
-        super(amount);
+    public CashPayment(double amountTendered){
+        super("Cash Payment");
         this.amountTendered = amountTendered;
     }
 
@@ -18,9 +18,7 @@ public class CashPayment extends Payment{
 
     @Override
     public String toString(){
-        return "PAGAMENTO EM DINHEIRO\n"
-                +super.toString()
-                +"\nValor fornecido...: " + this.amountTendered
-                +"\nTroco...: " + (this.amountTendered - super.getAmount()) + "\n";
+        return  super.toString()
+                +"\nValor fornecido...: " + this.amountTendered + "\n";
     }
 }

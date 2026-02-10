@@ -1,12 +1,12 @@
 package com.hostelapp;
 
-public class CheckPayment extends Payment{
+public class CheckPayment extends PaymentType{
     private int bankId;
     private String bankName;
     private int branchNumber;
 
-    public CheckPayment(double amount, int bankId, String bankName, int branchNumber){
-        super(amount);
+    public CheckPayment(int bankId, String bankName, int branchNumber){
+        super("Check Payment");
         this.bankId = bankId;
         this.bankName = bankName;
         this.branchNumber = branchNumber;
@@ -38,10 +38,9 @@ public class CheckPayment extends Payment{
 
     @Override
     public String toString(){
-        return  "PAGAMENTO EM CHEQUE\n"
-                +super.toString()
+        return  super.toString()
                 +"\nnome do banco...: " + this.bankName
                 +"\nID do banco...: " + this.bankId
-                +"\nNumero da agencia...: " + this.branchNumber;
+                +"\nNumero da agencia...: " + this.branchNumber + "\n";
     }
 }

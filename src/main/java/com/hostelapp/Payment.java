@@ -2,6 +2,7 @@ package com.hostelapp;
 
 public class Payment {
     private double amount;
+    private PaymentType paymentType;
 
     public Payment(double amount){
         this.amount = amount;
@@ -15,8 +16,17 @@ public class Payment {
         this.amount = amount;
     }
 
+    public PaymentType getPaymentType() {
+        return paymentType;
+    }
+
+    public void setPaymentType(PaymentType paymentType) {
+        this.paymentType = paymentType;
+    }
+
     @Override
     public String toString(){
-        return "Valor do pagamento...: $" + String.valueOf(this.amount);
+        return  "\nValor do pagamento...: $" + this.amount
+                +this.paymentType.toString();
     }
 }
