@@ -6,7 +6,7 @@ public abstract class Expense {
     private double amount;
 
     public double getAmount(){
-        return this.amount;
+        return amount;
     }
 
     public void setAmount(double amount){
@@ -18,4 +18,9 @@ public abstract class Expense {
     }
 
     public abstract LocalDateTime getTime();
+
+    @Override
+    public String toString(){
+        return "\nValor do pagamento...: $" + amount;
+    }
 }

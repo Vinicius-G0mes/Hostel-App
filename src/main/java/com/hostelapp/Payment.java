@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 public class Payment extends Expense implements Processable{
     private PaymentType paymentType;
+    private LocalDateTime localDateTime;
 
     public Payment(double amount){
         super(amount);
@@ -18,18 +19,37 @@ public class Payment extends Expense implements Processable{
     }
 
     @Override
-    public String toString(){
-        return  "\nValor do pagamento...: $" + super.getAmount()
-                +this.paymentType.toString();
+    public LocalDateTime getTime(){
+        return localDateTime;
     }
 
-    public LocalDateTime getTime(){
-        return LocalDateTime.now();
+    private String convertDateFormatToString(){
+        int day = localDateTime.getDayOfMonth();
+        int month = localDateTime.getMonthValue();
+        int year = localDateTime.getYear();
+
+        String date = day + "/" + month + "/" + year;
+
+        int hour = localDateTime.getHour();
+        int minute = localDateTime.getMinute();
+        int second = localDateTime.getSecond();
+
+        String time = hour + ":" + minute + ":" + second;
+
+        return "Data: " + date + "\n" + "Hora: " + time;
     }
 
     @Override
     public void process() {
+        this.localDateTime = LocalDateTime.now();
+        System.out.println("=============== ");
         System.out.println("Processando pagamento");
-        System.out.println(this.toString() );
+        System.out.println(this.toString());
+    }
+
+    @Override
+    public String toString(){
+        this.localDateTime = LocalDateTime.now(); //remove as soon as a more realistic payment process logic is implemented
+        return convertDateFormatToString() + super.toString() + paymentType;
     }
 }

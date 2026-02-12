@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class CreditCardPayment extends CardPayment{
     private String issuer;
-    LocalDate expirationDate = LocalDate.now();
+    LocalDate expirationDate;
     private String securityCode;
 
     public CreditCardPayment(String issuer, String cardNumber, String nameOnCard){
@@ -26,6 +26,14 @@ public class CreditCardPayment extends CardPayment{
 
     public void setSecurityCode(String securityCode){
         this.securityCode = securityCode;
+    }
+
+    public LocalDate getExpirationDate() {
+        return expirationDate;
+    }
+
+    public void setExpirationDate(LocalDate expirationDate) {
+        this.expirationDate = expirationDate;
     }
 
     @Override

@@ -5,7 +5,7 @@ public class Report {
     private int index;
 
     public Report(){
-        payments = new Payment[2];
+        payments = new Payment[4];
         index = 0;
     }
 
@@ -15,9 +15,11 @@ public class Report {
     }
 
     public String toString(){
-        String temp = "";
-        for(Payment x : payments){
-            temp = temp + x.toString() + "\n";
+        String temp = "RELATORIO DE PAGAMENTOS:\n\n";
+        int counter = 0;
+        for(Payment payment : payments){
+            counter++;
+            temp = temp + "Pagamento " + counter + "\n" + payment.toString() + "\n";
         }
         return temp;
     }

@@ -10,28 +10,36 @@ public class PaymentTest {
 
         pt.processPayment(cashPayment);
 
+        Report report = new Report();
+        report.add(cashPayment);
+
         Payment creditCardPayment = new Payment(278.00);
         PaymentType ccPmt = new CreditCardPayment("VISA", "104489654", "Florentino Ariza");
         creditCardPayment.setPaymentType(ccPmt);
 
         pt.processPayment(creditCardPayment);
+        report.add(creditCardPayment);
 
         Payment checkPayment = new Payment(635.00);
         PaymentType chkPmt = new CheckPayment(73, "Banco do Brasil", 25);
         checkPayment.setPaymentType(chkPmt);
 
         pt.processPayment(checkPayment);
+        report.add(checkPayment);
 
-        Payment debtCard = new Payment(1230.00);
+        Payment debtCardPayment = new Payment(1230.00);
         PaymentType dcPmt = new DebtCardPayment("Itau", "05973307603", "Ashley Gasly");
-        debtCard.setPaymentType(dcPmt);
+        debtCardPayment.setPaymentType(dcPmt);
 
-        pt.processPayment(debtCard);
+        pt.processPayment(debtCardPayment);
+        report.add(debtCardPayment);
+
+        String temp = null;
+        temp = report.toString();
+        System.out.println(temp);
     }
 
     public void processPayment(Payment payment){
-        System.out.println("=================");
-        System.out.println("Processando Pagamento");
-        System.out.println(payment.toString());
+        payment.process();
     }
 }
