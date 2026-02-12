@@ -1,19 +1,12 @@
 package com.hostelapp;
 
-public class Payment {
-    private double amount;
+import java.time.LocalDateTime;
+
+public class Payment extends Processable{
     private PaymentType paymentType;
 
     public Payment(double amount){
-        this.amount = amount;
-    }
-
-    public double getAmount(){
-        return this.amount;
-    }
-
-    public void setAmount(double amount){
-        this.amount = amount;
+        super(amount);
     }
 
     public PaymentType getPaymentType() {
@@ -26,7 +19,11 @@ public class Payment {
 
     @Override
     public String toString(){
-        return  "\nValor do pagamento...: $" + this.amount
+        return  "\nValor do pagamento...: $" + super.getAmount()
                 +this.paymentType.toString();
+    }
+
+    public LocalDateTime getTime(){
+        return LocalDateTime.now();
     }
 }
