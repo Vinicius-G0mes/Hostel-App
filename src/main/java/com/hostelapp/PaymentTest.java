@@ -22,11 +22,11 @@ public class PaymentTest {
 
         pt.processPayment(checkPayment);
 
-        Payment debitCard = new Payment(1230.00);
+        Payment debtCard = new Payment(1230.00);
         PaymentType dcPmt = new DebtCardPayment("Itau", "05973307603", "Ashley Gasly");
-        debitCard.setPaymentType(dcPmt);
+        debtCard.setPaymentType(dcPmt);
 
-        pt.processPayment(debitCard);
+        pt.processPayment(debtCard);
     }
 
     public void processPayment(Payment payment){
