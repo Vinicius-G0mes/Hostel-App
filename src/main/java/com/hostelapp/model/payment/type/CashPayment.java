@@ -1,6 +1,8 @@
-package com.hostelapp;
+package com.hostelapp.model.payment.type;
 
-public class CashPayment extends PaymentType{
+import com.hostelapp.model.payment.PaymentType;
+
+public class CashPayment extends PaymentType {
     private double amountTendered;
 
     public CashPayment(double amountTendered){

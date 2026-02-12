@@ -1,4 +1,4 @@
-package com.hostelapp;
+package com.hostelapp.model.payment;
 
 import java.time.LocalDateTime;
 

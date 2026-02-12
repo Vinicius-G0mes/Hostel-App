@@ -1,6 +1,8 @@
-package com.hostelapp;
+package com.hostelapp.model.payment.type;
 
-public class CheckPayment extends PaymentType{
+import com.hostelapp.model.payment.PaymentType;
+
+public class CheckPayment extends PaymentType {
     private int bankId;
     private String bankName;
     private int branchNumber;

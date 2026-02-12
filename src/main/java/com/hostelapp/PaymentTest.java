@@ -1,5 +1,13 @@
 package com.hostelapp;
 
+import com.hostelapp.model.payment.Payment;
+import com.hostelapp.model.payment.PaymentType;
+import com.hostelapp.model.payment.type.CashPayment;
+import com.hostelapp.model.payment.type.CheckPayment;
+import com.hostelapp.model.payment.type.CreditCardPayment;
+import com.hostelapp.model.payment.type.DebtCardPayment;
+import com.hostelapp.report.Report;
+
 public class PaymentTest {
     public static void main(String[] args) {
         PaymentTest pt = new PaymentTest();

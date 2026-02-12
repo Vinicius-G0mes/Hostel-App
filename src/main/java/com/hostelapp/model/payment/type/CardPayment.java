@@ -1,6 +1,8 @@
-package com.hostelapp;
+package com.hostelapp.model.payment.type;
 
-public abstract class CardPayment extends PaymentType{
+import com.hostelapp.model.payment.PaymentType;
+
+public abstract class CardPayment extends PaymentType {
     private String cardNumber;
     private String nameOnCard;
 

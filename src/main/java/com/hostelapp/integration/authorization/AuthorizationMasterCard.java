@@ -1,4 +1,4 @@
-package com.hostelapp;
+package com.hostelapp.integration.authorization;
 
 public class AuthorizationMasterCard implements Authorization{
     public boolean authorize(){
