@@ -2,7 +2,7 @@ package com.hostelapp;
 
 import java.time.LocalDateTime;
 
-public class Payment extends Processable{
+public class Payment extends Expense {
     private PaymentType paymentType;
 
     public Payment(double amount){

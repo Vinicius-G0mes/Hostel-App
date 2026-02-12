@@ -2,7 +2,7 @@ package com.hostelapp;
 
 import java.time.LocalDateTime;
 
-public abstract class Processable {
+public abstract class Expense {
     private double amount;
 
     public double getAmount(){
@@ -13,7 +13,7 @@ public abstract class Processable {
         this.amount = amount;
     }
 
-    public Processable(double amount){
+    public Expense(double amount){
         this.amount = amount;
     }
 
