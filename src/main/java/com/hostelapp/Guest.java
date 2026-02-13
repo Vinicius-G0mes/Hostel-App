@@ -21,9 +21,9 @@ public class Guest {
         this.lastName = lastName;
     }
 
-    public boolean isValid(Guest guest){
-        if (guest.firstName == null || guest.firstName.length() < 2) return false;
-        if (guest.lastName == null || guest.lastName.length() < 2) return false;
+    public boolean isValid(){
+        if (firstName == null || firstName.length() < 2) return false;
+        if (lastName == null || lastName.length() < 2) return false;
 
         return true;
     }
