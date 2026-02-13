@@ -1,10 +1,14 @@
 package com.hostelapp.model.payment;
 
+import com.hostelapp.integration.authorization.Authorization;
+import com.hostelapp.model.payment.type.CardPayment;
+
 import java.time.LocalDateTime;
 
 public class Payment extends Expense implements Processable{
     private PaymentType paymentType;
     private LocalDateTime localDateTime;
+    private Authorization authorization;
 
     public Payment(double amount){
         super(amount);
@@ -21,6 +25,14 @@ public class Payment extends Expense implements Processable{
     @Override
     public LocalDateTime getTime(){
         return localDateTime;
+    }
+
+    public Authorization getAuthorization() {
+        return authorization;
+    }
+
+    public void setAuthorization(Authorization authorization) {
+        this.authorization = authorization;
     }
 
     private String convertDateFormatToString(){
@@ -45,6 +57,16 @@ public class Payment extends Expense implements Processable{
         System.out.println("=============== ");
         System.out.println("Processando pagamento");
         System.out.println(this.toString());
+    }
+
+    public void authorize(){
+        if (paymentType instanceof CardPayment){
+            CardPayment cardPayment = (CardPayment) paymentType;
+            if (authorization.authorize(cardPayment, super.getAmount()))
+                cardPayment.setAuthorized(true);
+            else
+                cardPayment.setAuthorized(false);
+        }
     }
 
     @Override

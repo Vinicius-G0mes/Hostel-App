@@ -1,5 +1,8 @@
 package com.hostelapp;
 
+import com.hostelapp.integration.authorization.Authorization;
+import com.hostelapp.integration.authorization.AuthorizationMasterCard;
+import com.hostelapp.integration.authorization.AuthorizationVisa;
 import com.hostelapp.model.payment.Payment;
 import com.hostelapp.model.payment.PaymentType;
 import com.hostelapp.model.payment.type.CashPayment;
@@ -12,38 +15,46 @@ public class PaymentTest {
     public static void main(String[] args) {
         PaymentTest pt = new PaymentTest();
 
-        Payment cashPayment = new Payment(340.00);
+        Payment paymentCash = new Payment(340.00);
         PaymentType cshPmt = new CashPayment(400);
-        cashPayment.setPaymentType(cshPmt);
+        paymentCash.setPaymentType(cshPmt);
 
-        pt.processPayment(cashPayment);
+
+        pt.processPayment(paymentCash);
 
         Report report = new Report();
-        report.add(cashPayment);
+        report.add(paymentCash);
 
-        Payment creditCardPayment = new Payment(278.00);
+        Payment paymentCreditCard = new Payment(278.00);
         PaymentType ccPmt = new CreditCardPayment("VISA", "104489654", "Florentino Ariza");
-        creditCardPayment.setPaymentType(ccPmt);
+        paymentCreditCard.setPaymentType(ccPmt);
 
-        pt.processPayment(creditCardPayment);
-        report.add(creditCardPayment);
+        Authorization authorizationCreditCard = new AuthorizationVisa();
+        paymentCreditCard.setAuthorization(authorizationCreditCard);
+        paymentCreditCard.authorize();
 
-        Payment checkPayment = new Payment(635.00);
+        pt.processPayment(paymentCreditCard);
+        report.add(paymentCreditCard);
+
+        Payment paymentCheck = new Payment(635.00);
         PaymentType chkPmt = new CheckPayment(73, "Banco do Brasil", 25);
-        checkPayment.setPaymentType(chkPmt);
+        paymentCheck.setPaymentType(chkPmt);
 
-        pt.processPayment(checkPayment);
-        report.add(checkPayment);
+        pt.processPayment(paymentCheck);
+        report.add(paymentCheck);
 
-        Payment debtCardPayment = new Payment(1230.00);
+        Payment paymentDebtCard = new Payment(1230.00);
         PaymentType dcPmt = new DebtCardPayment("Itau", "05973307603", "Ashley Gasly");
-        debtCardPayment.setPaymentType(dcPmt);
+        paymentDebtCard.setPaymentType(dcPmt);
 
-        pt.processPayment(debtCardPayment);
-        report.add(debtCardPayment);
+        Authorization authorizationDebtCard = new AuthorizationMasterCard();
+        paymentDebtCard.setAuthorization(authorizationDebtCard);
+        paymentDebtCard.authorize();
 
-        String temp = null;
-        temp = report.toString();
+        pt.processPayment(paymentDebtCard);
+        report.add(paymentDebtCard);
+
+        String temp = report.toString();
         System.out.println(temp);
     }
 
