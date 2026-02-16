@@ -39,7 +39,7 @@ public class Guest {
 
     public void setFirstName(String firstName) {
         if (firstName.length() < 2)
-            throw new IllegalArgumentException("O nome deve ter no minimo dois caracteres");
+            throw new IllegalArgumentException("O nome nao pode ficar em branco e deve ter no minimo dois caracteres");
         this.firstName = firstName;
     }
 
@@ -74,16 +74,17 @@ public class Guest {
     }
 
     public void setEmail(String email) {
-        if (email.length() < 2)
-            throw new IllegalArgumentException("O endereco de email nao pode estar em branco");
+        if (email.length() < 2 || !email.contains("@"))
+            throw new IllegalArgumentException("O endereco de email nao pode estar em branco e deve ser valido");
         this.email = email;
     }
 
     @Override
     public String toString(){
 
-        return  "\nINFORMACOES DO HOSPEDE:" +
+        return  "\n==INFORMACOES DO HOSPEDE==" +
                 "\nNome...: "  + title + " " + firstName + " " + lastName +
+                "\nCPF...: " + cpf +
                 "\ne-mail...: " + email +
                 address.toString();
     }

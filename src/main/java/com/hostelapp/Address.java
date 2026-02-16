@@ -87,7 +87,7 @@ public class Address {
 
     @Override
     public String toString(){
-        return  "\nENDERECO" +
+        return  "\n-ENDERECO-" +
                 "\nzip-code...: " + zipCode+
                 "\nnumero...: " + number +
                 "\nrua...: " + address +
