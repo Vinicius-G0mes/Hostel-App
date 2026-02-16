@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class GuestRegistrationForm {
 
-    static Scanner scanner = new Scanner(System.in);  // RETIRAR O STATIC E COLOCAR O PRIVATE ========================================================
+    private Scanner scanner = new Scanner(System.in);
 
     private void fillFirstName(Guest guest){
         while(true){
@@ -55,7 +55,7 @@ public class GuestRegistrationForm {
         }
     }
 
-    public void fillBirthDate (Guest guest){ // maybe potential bug when not passed a date with missing fields
+    public void fillBirthDate (Guest guest){ // maybe potential bug when passed a date with missing fields
         int day, month, year;
         LocalDate birthDate;
         while (true){
