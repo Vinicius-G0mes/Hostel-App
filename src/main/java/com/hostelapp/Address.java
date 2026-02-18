@@ -39,7 +39,8 @@ public class Address {
     }
 
     public void setAddress(String address) {
-        validateText(address, "rua");
+        if (address == null || address.trim().isEmpty())
+            throw new IllegalArgumentException("O nome da rua não pode estar em branco.");
         this.address = address;
     }
 
@@ -57,7 +58,8 @@ public class Address {
     }
 
     public void setCity(String city) {
-        validateText(city, "cidade");
+        if (city == null || city.trim().isEmpty())
+            throw new IllegalArgumentException("O nome da cidade nao pode esta em branco.");
         this.city = city;
     }
 
@@ -66,7 +68,8 @@ public class Address {
     }
 
     public void setState(String state) {
-        validateText(state, "estado");
+        if (state == null || state.trim().isEmpty())
+            throw new IllegalArgumentException("O nome do estado nao pode esta em branco.");
         this.state = state;
     }
 
@@ -75,14 +78,9 @@ public class Address {
     }
 
     public void setCountry(String country) {
-        validateText(country, "pais");
+        if (country == null || country.trim().isEmpty())
+            throw new IllegalArgumentException("O nome do pais nao pode esta em branco.");
         this.country = country;
-    }
-
-    private void validateText(String value, String fieldName){
-        if (value == null || value.trim().isEmpty()){
-            throw new IllegalArgumentException(fieldName + " nao pode estar em branco");
-        }
     }
 
     @Override
