@@ -15,8 +15,8 @@ public class GuestRegistrationForm {
                 System.out.println("Digite o nome do hospede");
                 guest.setFirstName(scanner.nextLine());
                 break;
-            } catch (Exception exception) {
-                System.out.println(exception);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
             }
         }
     }
@@ -27,8 +27,8 @@ public class GuestRegistrationForm {
                 System.out.println("Digite o ultimo sobrenome do hospede");
                 guest.setLastName(scanner.nextLine());
                 break;
-            }catch (Exception exception){
-                System.out.println(exception);
+            }catch (Exception e){
+                System.out.println(e.getMessage());
             }
         }
     }
@@ -39,8 +39,8 @@ public class GuestRegistrationForm {
                 System.out.println("Digite o titulo do hospede (ex:Dr,Sr,Dra,Sra) ou Aperte ENTER para deixar em branco");
                 guest.setTitle(scanner.nextLine());
                 break;
-            }catch (Exception exception){
-                System.out.println(exception);
+            }catch (Exception e){
+                System.out.println(e.getMessage());
             }
         }
     }
@@ -52,7 +52,7 @@ public class GuestRegistrationForm {
                 guest.setCpf(scanner.nextLine());
                 break;
             } catch (Exception e) {
-                System.out.println(e);
+                System.out.println(e.getMessage());
             }
         }
     }
@@ -71,7 +71,7 @@ public class GuestRegistrationForm {
                 scanner.nextLine(); // needed to consume the '\n' remaining from the user command
                 break;
             } catch (Exception e) {
-                System.out.println(e);
+                System.out.println(e.getMessage());
             }
         }
     }
@@ -83,7 +83,7 @@ public class GuestRegistrationForm {
                 guest.setEmail(scanner.nextLine());
                 break;
             }catch (Exception e){
-                System.out.println(e);
+                System.out.println(e.getMessage());
             }
         }
     }
@@ -95,7 +95,7 @@ public class GuestRegistrationForm {
                 address.setZipCode(scanner.nextLine());
                 break;
             } catch (Exception e) {
-                System.out.println(e);
+                System.out.println(e.getMessage());
             }
         }
     }
@@ -107,7 +107,7 @@ public class GuestRegistrationForm {
                 address.setNumber(scanner.nextLine());
                 break;
             } catch (Exception e) {
-                System.out.println(e);
+                System.out.println(e.getMessage());
             }
         }
     }
@@ -119,7 +119,7 @@ public class GuestRegistrationForm {
                 address.setAddress(scanner.nextLine());
                 break;
             } catch (Exception e) {
-                System.out.println(e);
+                System.out.println(e.getMessage());
             }
         }
     }
@@ -131,7 +131,7 @@ public class GuestRegistrationForm {
                 address.setCity(scanner.nextLine());
                 break;
             } catch (Exception e) {
-                System.out.println(e);
+                System.out.println(e.getMessage());
             }
         }
     }
@@ -143,7 +143,7 @@ public class GuestRegistrationForm {
                 address.setState(scanner.nextLine());
                 break;
             } catch (Exception e) {
-                System.out.println(e);
+                System.out.println(e.getMessage());
             }
         }
     }
@@ -155,7 +155,7 @@ public class GuestRegistrationForm {
                 address.setCountry(scanner.nextLine());
                 break;
             } catch (Exception e) {
-                System.out.println(e);
+                System.out.println(e.getMessage());
             }
         }
     }
