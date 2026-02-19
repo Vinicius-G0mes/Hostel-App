@@ -8,7 +8,7 @@ public class Address {
     private String state;
     private String country;
 
-    public Address(String number, String address, String zipCode, String city, String state, String country){
+    public Address(String number, String address, String zipCode, String city, String state, String country) {
         this.number = number;
         this.address = address;
         this.zipCode = zipCode;
@@ -17,7 +17,7 @@ public class Address {
         this.country = country;
     }
 
-    public Address(){
+    public Address() {
         this.number = null;
         this.address = null;
         this.zipCode = null;
@@ -49,7 +49,7 @@ public class Address {
     }
 
     public void setZipCode(String zipCode) {
-        if(zipCode.length() != 8) throw new IllegalArgumentException("O CEP deve ser uma sequencia de 8 digitos");
+        if (zipCode.length() != 8) throw new IllegalArgumentException("O CEP deve ser uma sequencia de 8 digitos");
         this.zipCode = zipCode;
     }
 
@@ -84,9 +84,9 @@ public class Address {
     }
 
     @Override
-    public String toString(){
-        return  "\n-ENDERECO-" +
-                "\nzip-code...: " + zipCode+
+    public String toString() {
+        return "\n-ENDERECO-" +
+                "\nzip-code...: " + zipCode +
                 "\nnumero...: " + number +
                 "\nrua...: " + address +
                 "\ncidade...: " + city +

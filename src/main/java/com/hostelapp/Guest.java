@@ -33,7 +33,7 @@ public class Guest {
             this.title = title;
     }
 
-    public String getFirstName(){
+    public String getFirstName() {
         return firstName;
     }
 
@@ -53,11 +53,11 @@ public class Guest {
         this.lastName = lastName;
     }
 
-    public Address getAddress(){
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(Address address){
+    public void setAddress(Address address) {
         this.address = address;
     }
 
@@ -80,10 +80,10 @@ public class Guest {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
 
-        return  "\n==INFORMACOES DO HOSPEDE==" +
-                "\nNome...: "  + title + " " + firstName + " " + lastName +
+        return "\n==INFORMACOES DO HOSPEDE==" +
+                "\nNome...: " + title + " " + firstName + " " + lastName +
                 "\nCPF...: " + cpf +
                 "\ne-mail...: " + email +
                 address.toString();

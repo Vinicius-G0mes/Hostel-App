@@ -6,12 +6,10 @@ import java.util.Scanner;
 public class GuestRegistrationForm {
 
     private final Scanner scanner = new Scanner(System.in);
-    Guest guest = new Guest();
-    Address address = new Address();
 
-    private void fillFirstName(Guest guest){
-        while(true){
-            try{
+    private void fillFirstName(Guest guest) {
+        while (true) {
+            try {
                 System.out.println("Digite o nome do hospede");
                 guest.setFirstName(scanner.nextLine());
                 break;
@@ -21,33 +19,33 @@ public class GuestRegistrationForm {
         }
     }
 
-    private void fillLastName (Guest guest){
-        while (true){
-            try{
+    private void fillLastName(Guest guest) {
+        while (true) {
+            try {
                 System.out.println("Digite o ultimo sobrenome do hospede");
                 guest.setLastName(scanner.nextLine());
                 break;
-            }catch (Exception e){
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }
     }
 
-    private void fillTitle (Guest guest){
-        while (true){
-            try{
+    private void fillTitle(Guest guest) {
+        while (true) {
+            try {
                 System.out.println("Digite o titulo do hospede (ex:Dr,Sr,Dra,Sra) ou Aperte ENTER para deixar em branco");
                 guest.setTitle(scanner.nextLine());
                 break;
-            }catch (Exception e){
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }
     }
 
-    public void fillCPF (Guest guest){
-        while (true){
-            try{
+    public void fillCPF(Guest guest) {
+        while (true) {
+            try {
                 System.out.println("Digite o cpf do hospede");
                 guest.setCpf(scanner.nextLine());
                 break;
@@ -57,11 +55,11 @@ public class GuestRegistrationForm {
         }
     }
 
-    public void fillBirthDate (Guest guest){ // maybe potential bug when passed a date with missing fields
+    public void fillBirthDate(Guest guest) { // maybe potential bug when passed a date with missing fields
         int day, month, year;
         LocalDate birthDate;
-        while (true){
-            try{
+        while (true) {
+            try {
                 System.out.println("Digite o dia, mes e ano de nascimento do hospede separados por espaco");
                 day = scanner.nextInt();
                 month = scanner.nextInt();
@@ -72,25 +70,26 @@ public class GuestRegistrationForm {
                 break;
             } catch (Exception e) {
                 System.out.println(e.getMessage());
+                scanner.nextLine();
             }
         }
     }
 
-    public void fillEMail (Guest guest){
-        while (true){
-            try{
+    public void fillEMail(Guest guest) {
+        while (true) {
+            try {
                 System.out.println("Digite o email do hospede");
                 guest.setEmail(scanner.nextLine());
                 break;
-            }catch (Exception e){
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }
     }
 
-    public void fillZipCode (Address address){
-        while (true){
-            try{
+    public void fillZipCode(Address address) {
+        while (true) {
+            try {
                 System.out.println("Digite CEP");
                 address.setZipCode(scanner.nextLine());
                 break;
@@ -100,9 +99,9 @@ public class GuestRegistrationForm {
         }
     }
 
-    public void fillNumber (Address address){
-        while (true){
-            try{
+    public void fillNumber(Address address) {
+        while (true) {
+            try {
                 System.out.println("Digite o numero da rua");
                 address.setNumber(scanner.nextLine());
                 break;
@@ -112,9 +111,9 @@ public class GuestRegistrationForm {
         }
     }
 
-    public void fillAddress (Address address){
-        while (true){
-            try{
+    public void fillAddress(Address address) {
+        while (true) {
+            try {
                 System.out.println("Digite o nome da rua");
                 address.setAddress(scanner.nextLine());
                 break;
@@ -124,9 +123,9 @@ public class GuestRegistrationForm {
         }
     }
 
-    public void fillCity (Address address){
-        while (true){
-            try{
+    public void fillCity(Address address) {
+        while (true) {
+            try {
                 System.out.println("Digite o nome da cidade");
                 address.setCity(scanner.nextLine());
                 break;
@@ -136,9 +135,9 @@ public class GuestRegistrationForm {
         }
     }
 
-    public void fillState (Address address){
-        while (true){
-            try{
+    public void fillState(Address address) {
+        while (true) {
+            try {
                 System.out.println("Digite o nome do estado");
                 address.setState(scanner.nextLine());
                 break;
@@ -148,9 +147,9 @@ public class GuestRegistrationForm {
         }
     }
 
-    public void fillCountry (Address address){
-        while (true){
-            try{
+    public void fillCountry(Address address) {
+        while (true) {
+            try {
                 System.out.println("Digite o nome do pais");
                 address.setCountry(scanner.nextLine());
                 break;
@@ -161,6 +160,9 @@ public class GuestRegistrationForm {
     }
 
     public Guest createGuest() {
+
+        Guest guest = new Guest();
+        Address address = new Address();
 
         System.out.println("\n=====CADASTRO DE HOSPEDE=====\n");
         fillFirstName(guest);
@@ -190,12 +192,12 @@ public class GuestRegistrationForm {
             System.out.println("1- informacoes do hospede \n2- informacoes da residencia");
             int guestOrAddress = scanner.nextInt();
             scanner.nextLine();
-            if (guestOrAddress == 1){
-                editGuest();
+            if (guestOrAddress == 1) {
+                editGuest(guest);
                 edit = edit();
                 scanner.nextLine();
-            }else if (guestOrAddress == 2) {
-                editAddress();
+            } else if (guestOrAddress == 2) {
+                editAddress(address);
                 edit = edit();
                 scanner.nextLine();
             }
@@ -207,25 +209,35 @@ public class GuestRegistrationForm {
 
     }
 
-    public int edit (){
+    public int edit() {
         System.out.println("\nDeseja salvar as informacoes do hospede?");
         System.out.println("1- salvar" +
                 "\n2- editar");
         int answer = scanner.nextInt();
-        while (answer != 1 && answer != 2){
+        while (answer != 1 && answer != 2) {
             System.out.println("opcao invalida, tente novamente.");
             answer = scanner.nextInt();
         }
         return answer;
     }
 
-    public void editGuest(){
-        System.out.println("EDITAR hospede:" +
-                "\n1- CPF \n2- titulo\n3- nome\n4- sobrenome" +
-                "\n5- data de nascimento\n6- email\n0- SAIR");
+    public void editGuest(Guest guest) {
 
-        int option = scanner.nextInt();
-        scanner.nextLine();
+        int option = -1;
+
+        do {
+            System.out.println("EDITAR hospede:" +
+                    "\n1- CPF \n2- titulo\n3- nome\n4- sobrenome" +
+                    "\n5- data de nascimento\n6- email\n0- SAIR");
+
+            while (!scanner.hasNextInt()) {
+                System.out.println("Opcao digitada invalida. Tente novamente.");
+                scanner.next();
+            }
+
+            option = scanner.nextInt();
+            scanner.nextLine();
+
             switch (option) {
                 case 0:
                     break;
@@ -249,17 +261,31 @@ public class GuestRegistrationForm {
                     break;
                 default:
                     System.out.println("Opcao invalida digitada. Tente novamente.");
-                    option = scanner.nextInt();
             }
+
+        } while (option != 0);
+
         System.out.println("saindo do modo de edicao.\n");
         System.out.println(guest.toString());
     }
 
-    public void editAddress (){
-        System.out.println("EDITAR endereco:" +
-                "\n1- numero\n2- rua\n3- CEP\n4- cidade\n5- estado\n6- pais\n0- SAIR");
-        int option = scanner.nextInt();
-        scanner.nextLine();
+    public void editAddress(Address address) {
+
+        int option = -1;
+
+
+        do {
+            System.out.println("EDITAR endereco:" +
+                    "\n1- numero\n2- rua\n3- CEP\n4- cidade\n5- estado\n6- pais\n0- SAIR");
+
+            while (!scanner.hasNextInt()) {
+                System.out.println("Opcao invalida. Tente novamente.");
+                scanner.next();
+            }
+
+            option = scanner.nextInt();
+            scanner.nextLine();
+
             switch (option) {
                 case 0:
                     break;
@@ -283,9 +309,11 @@ public class GuestRegistrationForm {
                     break;
                 default:
                     System.out.println("Opcao invalida digitada. Tente novamente.");
-                    option = scanner.nextInt();
             }
+
+        } while (option != 0);
+
         System.out.println("saindo do modo de edicao.\n");
-        System.out.println(guest.toString());
+        System.out.println(address.toString());
     }
 }
