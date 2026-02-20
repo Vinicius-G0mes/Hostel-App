@@ -1,4 +1,7 @@
-package com.hostelapp;
+package com.hostelapp.commandline;
+
+import com.hostelapp.model.address.Address;
+import com.hostelapp.model.guest.Guest;
 
 import java.time.LocalDate;
 import java.util.Scanner;
@@ -55,7 +58,7 @@ public class GuestRegistrationForm {
         }
     }
 
-    public void fillBirthDate(Guest guest) { // maybe potential bug when passed a date with missing fields
+    private void fillBirthDate(Guest guest) { // maybe potential bug when passed a date with missing fields
         int day, month, year;
         LocalDate birthDate;
         while (true) {
@@ -70,12 +73,12 @@ public class GuestRegistrationForm {
                 break;
             } catch (Exception e) {
                 System.out.println(e.getMessage());
-                scanner.nextLine();
+                scanner.nextLine(); //needed to prevent infinite loop
             }
         }
     }
 
-    public void fillEMail(Guest guest) {
+    private void fillEMail(Guest guest) {
         while (true) {
             try {
                 System.out.println("Digite o email do hospede");
@@ -87,7 +90,7 @@ public class GuestRegistrationForm {
         }
     }
 
-    public void fillZipCode(Address address) {
+    private void fillZipCode(Address address) {
         while (true) {
             try {
                 System.out.println("Digite CEP");
@@ -99,7 +102,7 @@ public class GuestRegistrationForm {
         }
     }
 
-    public void fillNumber(Address address) {
+    private void fillNumber(Address address) {
         while (true) {
             try {
                 System.out.println("Digite o numero da rua");
@@ -111,7 +114,7 @@ public class GuestRegistrationForm {
         }
     }
 
-    public void fillAddress(Address address) {
+    private void fillAddress(Address address) {
         while (true) {
             try {
                 System.out.println("Digite o nome da rua");
@@ -123,7 +126,7 @@ public class GuestRegistrationForm {
         }
     }
 
-    public void fillCity(Address address) {
+    private void fillCity(Address address) {
         while (true) {
             try {
                 System.out.println("Digite o nome da cidade");
@@ -135,7 +138,7 @@ public class GuestRegistrationForm {
         }
     }
 
-    public void fillState(Address address) {
+    private void fillState(Address address) {
         while (true) {
             try {
                 System.out.println("Digite o nome do estado");
@@ -147,7 +150,7 @@ public class GuestRegistrationForm {
         }
     }
 
-    public void fillCountry(Address address) {
+    private void fillCountry(Address address) {
         while (true) {
             try {
                 System.out.println("Digite o nome do pais");
@@ -209,7 +212,7 @@ public class GuestRegistrationForm {
 
     }
 
-    public int edit() {
+    private int edit() {
         System.out.println("\nDeseja salvar as informacoes do hospede?");
         System.out.println("1- salvar" +
                 "\n2- editar");
@@ -221,7 +224,7 @@ public class GuestRegistrationForm {
         return answer;
     }
 
-    public void editGuest(Guest guest) {
+    private void editGuest(Guest guest) {
 
         int option = -1;
 
@@ -269,7 +272,7 @@ public class GuestRegistrationForm {
         System.out.println(guest.toString());
     }
 
-    public void editAddress(Address address) {
+    private void editAddress(Address address) {
 
         int option = -1;
 

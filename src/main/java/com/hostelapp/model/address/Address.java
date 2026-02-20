@@ -1,4 +1,4 @@
-package com.hostelapp;
+package com.hostelapp.model.address;
 
 public class Address {
     private String number;
@@ -17,14 +17,7 @@ public class Address {
         this.country = country;
     }
 
-    public Address() {
-        this.number = null;
-        this.address = null;
-        this.zipCode = null;
-        this.city = null;
-        this.state = null;
-        this.country = null;
-    }
+    public Address(){};
 
     public String getNumber() {
         return number;

@@ -1,4 +1,6 @@
-package com.hostelapp;
+package com.hostelapp.model.guest;
+
+import com.hostelapp.model.address.Address;
 
 import java.time.LocalDate;
 
